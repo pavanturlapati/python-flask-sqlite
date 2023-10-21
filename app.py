@@ -15,19 +15,19 @@ def insert_data_form():
 @app.route('/insert-data', methods=['POST'])
 def insert_data():
     # Get data from the form
-    store_number = request.form['store_number']
-    storeLocation_Address = request.form['storeLocation_Address']
-    Lab_Type = request.form['Lab_Type']
-    Windows_OS_Version = request.form['Windows_OS_Version']
-    Windows_Patch_Version = request.form['Windows_Patch_Version']
-    POS_Type = request.form['POS_Type']
-    POS_Version = request.form['POS_Version']
+    a_number = request.form['a_number']
+    a_Address = request.form['a_Address']
+    al_Type = request.form['al_Type']
+    a_OS_Version = request.form['a_OS_Version']
+    a_p_Version = request.form['a_p_Version']
+    ap_Type = request.form['ap_Type']
+    ap_Version = request.form['ap_Version']
     # Get data for other columns similarly
 
     # Insert data into the SQLite database
-    conn = sqlite3.connect('store_Information.db')
+    conn = sqlite3.connect('a_Information.db')
     cursor = conn.cursor()
-    cursor.execute("INSERT INTO store_Information (store_Number, storeLocation_Address, Lab_Type, Windows_OS_Version, Windows_Patch_Version, POS_Type, POS_Version) VALUES (?,?,?,?,?,?,?)", (store_number,storeLocation_Address,Lab_Type,Windows_OS_Version,Windows_Patch_Version,POS_Type,POS_Version))
+    cursor.execute("INSERT INTO a_Information (a_number, a_Address, al_Type, a_OS_Version, a_p_Version, ap_Type, ap_Version) VALUES (?,?,?,?,?,?,?)", (a_number, a_Address, al_Type, a_OS_Version, a_p_Version, ap_Type, ap_Version))
     conn.commit()
     conn.close()
 
@@ -36,11 +36,11 @@ def insert_data():
 @app.route('/view-data', methods=['GET'])
 def view_data():
     # Connect to the SQLite database
-    conn = sqlite3.connect('store_Information.db')
+    conn = sqlite3.connect('a_Information.db')
     cursor = conn.cursor()
 
     # Fetch data from the database
-    cursor.execute("SELECT * FROM store_Information;")
+    cursor.execute("SELECT * FROM a_Information;")
     rows = cursor.fetchall()
 
     conn.close()
@@ -50,9 +50,9 @@ def view_data():
 def edit_data_form(id):
     if request.method == 'GET':
         # Fetch the record from the database by ID
-        conn = sqlite3.connect('store_Information.db')
+        conn = sqlite3.connect('a_Information.db')
         cursor = conn.cursor()
-        cursor.execute("SELECT * FROM store_Information WHERE store_Number=?", (id,))
+        cursor.execute("SELECT * FROM a_Information WHERE a_Number=?", (id,))
         row = cursor.fetchone()
         conn.close()
 
@@ -65,19 +65,19 @@ def edit_data_form(id):
 
     if request.method == 'POST':
         # Get the updated data from the form
-        store_number = request.form['store_number']
-        storeLocation_Address = request.form['storeLocation_Address']
-        Lab_Type = request.form['Lab_Type']
-        Windows_OS_Version = request.form['Windows_OS_Version']
-        Windows_Patch_Version = request.form['Windows_Patch_Version']
-        POS_Type = request.form['POS_Type']
-        POS_Version = request.form['POS_Version']
+        a_number = request.form['a_number']
+        a_Address = request.form['a_Address']
+        al_Type = request.form['al_Type']
+        a_OS_Version = request.form['a_OS_Version']
+        a_p_Version = request.form['a_p_Version']
+        ap_Type = request.form['ap_Type']
+        ap_Version = request.form['ap_Version']
 
         # Update the record in the database
-        conn = sqlite3.connect('store_Information.db')
+        conn = sqlite3.connect('a_Information.db')
         cursor = conn.cursor()
-        cursor.execute("UPDATE store_Information SET store_Number=?, storeLocation_Address=?, Lab_Type=?, Windows_OS_Version=?, Windows_Patch_Version=?, POS_Type=?, POS_Version=? WHERE store_Number=?",
-                       (store_number, storeLocation_Address, Lab_Type, Windows_OS_Version, Windows_Patch_Version, POS_Type, POS_Version, id))
+        cursor.execute("UPDATE a_Information SET a_Number=?, a_Address=?, al_Type=?, a_OS_Version=?, a_p_Version=?, ap_Type=?, ap_Version=? WHERE a_Number=?",
+                       (a_Number, a_Address, al_Type, a_OS_Version, a_p_Version, ap_Type, ap_Version, id))
         conn.commit()
         conn.close()
 
@@ -88,9 +88,9 @@ def edit_data_form(id):
 @app.route('/delete-data/<int:id>', methods=['GET'])
 def delete_data(id):
     # Delete the record from the database by ID
-    conn = sqlite3.connect('store_Information.db')
+    conn = sqlite3.connect('a_Information.db')
     cursor = conn.cursor()
-    cursor.execute("DELETE FROM store_Information WHERE store_Number = ?", (id,))
+    cursor.execute("DELETE FROM a_Information WHERE a_Number = ?", (id,))
     conn.commit()
     conn.close()
     
