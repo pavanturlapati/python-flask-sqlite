@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Edit Store Information</title>
+    <title>Edit a Information</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -41,7 +41,7 @@
     </style>
 </head>
 <body>
-    <h1>Edit Store Information</h1>
+    <h1>Edit a Information</h1>
     <form action="/edit-data/{{ row[0] }}" method="post">
         <table>
             <tr>
@@ -49,13 +49,13 @@
                 <th>Value</th>
             </tr>
             <tr>
-                <td>Store Number :</td>
-                <td><input type="text" name="store_number" value="{{ row[0] }}" readonly></td>
+                <td>a Number :</td>
+                <td><input type="text" name="a_number" value="{{ row[0] }}" readonly></td>
 
             </tr>
             <tr>
-                <td>Store Location Address:</td>
-                <td><input type="text" name="storeLocation_Address" value="{{ row[1] }}" required></td>
+                <td>a Location Address:</td>
+                <td><input type="text" name="aLocation_Address" value="{{ row[1] }}" required></td>
             </tr>
             <tr>
                 <td>Lab Type:</td>
@@ -75,17 +75,17 @@
                 <td><input type="text" name="Windows_Patch_Version" value="{{ row[4] }}" required></td>
             </tr>
             <tr>
-                <td>POS Type:</td>
+                <td>a Type:</td>
                 <td>
-                    <select name="POS_Type">
+                    <select name="a_Type">
                         <option value="Oracle" {% if row[5] == 'Oracle' %}selected{% endif %}>Oracle</option>
                         <option value="Infor" {% if row[5] == 'Infor' %}selected{% endif %}>Infor</option>
                     </select>
                 </td>
             </tr>
             <tr>
-                <td>POS Version:</td>
-                <td><input type="text" name="POS_Version" value="{{ row[6] }}" required></td>
+                <td>a Version:</td>
+                <td><input type="text" name="a_Version" value="{{ row[6] }}" required></td>
             </tr>
         </table>
         <input type="submit" value="Save Changes">
