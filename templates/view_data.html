@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Store Information</title>
+    <title>a Information</title>
     <style>
         /* Styles for header and footer */
         .header {
@@ -42,7 +42,7 @@
     <script>
         function sortTable(columnIndex) {
             var table, rows, switching, i, x, y, shouldSwitch;
-            table = document.getElementById("storeInfoTable");
+            table = document.getElementById("aInfoTable");
             switching = true;
             while (switching) {
                 switching = false;
@@ -65,17 +65,17 @@
     </script>
 </head>
 <body>
-    <h1>Store Information</h1>
+    <h1>a Information</h1>
     <table>
-        <table id="storeInfoTable">
+        <table id="aInfoTable">
             <tr>
-                <th onclick="sortTable(0)">Store Number</th>
-                <th onclick="sortTable(1)">Store Location Address</th>
+                <th onclick="sortTable(0)">a Number</th>
+                <th onclick="sortTable(1)">a Location Address</th>
                 <th onclick="sortTable(2)">Lab Type</th>
                 <th onclick="sortTable(3)">Windows OS Version</th>
                 <th onclick="sortTable(4)">Windows Patch Version</th>
-                <th onclick="sortTable(5)">POS Type</th>
-                <th onclick="sortTable(6)">POS Version</th>
+                <th onclick="sortTable(5)">a_p Type</th>
+                <th onclick="sortTable(6)">a_p Version</th>
             </tr>
             {% for row in rows %}
             <tr>
