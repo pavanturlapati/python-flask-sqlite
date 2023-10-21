@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Insert Store Information</title>
+    <title>Insert a Information</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -77,8 +77,8 @@
 </head>
 
 <body>
-    <h1>Insert Store Information</h1>
-        <button onclick="window.location.href='/view-data'">View Stores Information</button>
+    <h1>Insert a Information</h1>
+        <button onclick="window.location.href='/view-data'">View as Information</button>
         <form action="/insert-data" method="post">
         <table>
             <tr>
@@ -86,12 +86,12 @@
                 <th>Value</th>
             </tr>
             <tr>
-                <td>Store Number (Mandatory) :</td>
-                <td><input type="text" name="store_number" required></td>
+                <td>a Number (Mandatory) :</td>
+                <td><input type="text" name="a_number" required></td>
             </tr>
             <tr>
-                <td>Store Location Address:</td>
-                <td><input type="text" name="storeLocation_Address" required></td>
+                <td>a Location Address:</td>
+                <td><input type="text" name="aLocation_Address" required></td>
             </tr>
             <tr>
                 <td>Lab Type:</td>
@@ -103,17 +103,17 @@
                 </td>
             </tr>
             <tr>
-                <td>POS Type:</td>
+                <td>a_p Type:</td>
                 <td>
-                    <select name="POS_Type">
+                    <select name="a_p_Type">
                         <option value="Oracle">Oracle</option>
                         <option value="Infor">Infor</option>
                     </select>
                 </td>
             </tr>
             <tr>
-                <td>POS Version:</td>
-                <td><input type="text" name="POS_Version" required></td>
+                <td>a_p Version:</td>
+                <td><input type="text" name="a_p_Version" required></td>
             </tr>
             <tr>
                 <td>Windows OS Version:</td>
