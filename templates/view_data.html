@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Store Information</title>
+    <style>
+        /* Styles for header and footer */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #333;
+        }
+        .header img {
+            max-width: 100px;
+        }
+        .header .left-logo {
+            margin-right: auto;
+        }
+        .header .right-logo {
+            margin-left: auto;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        /* Rest of your styles... */
+    </style>
+    <script>
+        function sortTable(columnIndex) {
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById("storeInfoTable");
+            switching = true;
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("td")[columnIndex];
+                    y = rows[i + 1].getElementsByTagName("td")[columnIndex];
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Store Information</h1>
+    <table>
+        <table id="storeInfoTable">
+            <tr>
+                <th onclick="sortTable(0)">Store Number</th>
+                <th onclick="sortTable(1)">Store Location Address</th>
+                <th onclick="sortTable(2)">Lab Type</th>
+                <th onclick="sortTable(3)">Windows OS Version</th>
+                <th onclick="sortTable(4)">Windows Patch Version</th>
+                <th onclick="sortTable(5)">POS Type</th>
+                <th onclick="sortTable(6)">POS Version</th>
+            </tr>
+            {% for row in rows %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>{{ row[5] }}</td>
+                <td>{{ row[6] }}</td>
+                <td>
+                    <a href="{{ url_for('edit_data_form', id=row[0]) }}" class="btn btn-primary">Edit</a>
+                    <a href="{{ url_for('delete_data', id=row[0]) }}" class="btn btn-danger">Delete</a>
+                </td>
+
+            </tr>
+            {% endfor %}
+        </table>
+    </table>
+    <button onclick="window.location.href='/insert-data'">Insert New Data</button>
+    <div class="footer">
+        Designed by Pavan Turlapati
+    </div>
+</body>
+</html>

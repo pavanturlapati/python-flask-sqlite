@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Store Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Edit Store Information</h1>
+    <form action="/edit-data/{{ row[0] }}" method="post">
+        <table>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Store Number :</td>
+                <td><input type="text" name="store_number" value="{{ row[0] }}" readonly></td>
+
+            </tr>
+            <tr>
+                <td>Store Location Address:</td>
+                <td><input type="text" name="storeLocation_Address" value="{{ row[1] }}" required></td>
+            </tr>
+            <tr>
+                <td>Lab Type:</td>
+                <td>
+                    <select name="Lab_Type">
+                        <option value="Physical" {% if row[2] == 'Physical' %}selected{% endif %}>Physical</option>
+                        <option value="Virtual" {% if row[2] == 'Virtual' %}selected{% endif %}>Virtual</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Windows OS Version:</td>
+                <td><input type="text" name="Windows_OS_Version" value="{{ row[3] }}" required></td>
+            </tr>
+            <tr>
+                <td>Windows Patch Version:</td>
+                <td><input type="text" name="Windows_Patch_Version" value="{{ row[4] }}" required></td>
+            </tr>
+            <tr>
+                <td>POS Type:</td>
+                <td>
+                    <select name="POS_Type">
+                        <option value="Oracle" {% if row[5] == 'Oracle' %}selected{% endif %}>Oracle</option>
+                        <option value="Infor" {% if row[5] == 'Infor' %}selected{% endif %}>Infor</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>POS Version:</td>
+                <td><input type="text" name="POS_Version" value="{{ row[6] }}" required></td>
+            </tr>
+        </table>
+        <input type="submit" value="Save Changes">
+    </form>
+</body>
+</html>

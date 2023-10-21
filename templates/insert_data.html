@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Insert Store Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #333;
+        }
+
+        .header img {
+            max-width: 100px;
+        }
+
+        .header .left-logo {
+            margin-right: auto;
+        }
+
+        .header .right-logo {
+            margin-left: auto;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Insert Store Information</h1>
+        <button onclick="window.location.href='/view-data'">View Stores Information</button>
+        <form action="/insert-data" method="post">
+        <table>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Store Number (Mandatory) :</td>
+                <td><input type="text" name="store_number" required></td>
+            </tr>
+            <tr>
+                <td>Store Location Address:</td>
+                <td><input type="text" name="storeLocation_Address" required></td>
+            </tr>
+            <tr>
+                <td>Lab Type:</td>
+                <td>
+                    <select name="Lab_Type">
+                        <option value="Physical">Physical</option>
+                        <option value="Virtual">Virtual</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>POS Type:</td>
+                <td>
+                    <select name="POS_Type">
+                        <option value="Oracle">Oracle</option>
+                        <option value="Infor">Infor</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>POS Version:</td>
+                <td><input type="text" name="POS_Version" required></td>
+            </tr>
+            <tr>
+                <td>Windows OS Version:</td>
+                <td><input type="text" name="Windows_OS_Version" required></td>
+            </tr>
+            <tr>
+                <td>Windows Patch Version:</td>
+                <td><input type="text" name="Windows_Patch_Version" required></td>
+            </tr>
+        </table>
+        <input type="submit" value="Insert Data">
+    </form>
+    <div class="footer">
+        Designed by Pavan Turlapati
+    </div>
+</body>
+
+</html>
